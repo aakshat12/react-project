@@ -1,15 +1,75 @@
 import React from "react";
-import "./Nav.css";
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaYoutubeSquare,
-} from "react-icons/fa";
+import {Navlink} from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <>
-      {" "}
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+        <div className="container">
+          <a
+            className="navbar-brand"
+            to="#"
+            style={{
+              fontSize: "2.0rem",
+
+              backgroundClip: "text",
+              fontWeight: "400",
+            }}
+          >
+            <span style={{ fontSize: "2.5rem" }}>D</span>ream
+            <span>B</span>azar
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" to="/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" to="/product's">
+                  Products
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link"  to="/about">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" to="/contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
+            <div className="buttons">
+              <a to="/login" className="btn btn.outline-dark">
+                <i className="fa fa-sign-in me-1"></i>Login
+              </a>
+              <a to="/register" className="btn btn.outline-dark">
+                <i className="fa fa-user-plus me-1"></i>Register
+              </a>
+              <a to="cart" className="btn btn.outline-dark">
+                <i className="fa fa-shopping-cart me-1"></i>Cart (0)
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    /* {" "}
       <nav className="main-nav">
         <div className="float-container">
           <div className="float-child">
@@ -27,13 +87,13 @@ const Nav = () => {
               marginLeft: "127px",fontSize:"17px"
             }}
           >
-            <a href="#">Home</a>
+            <a to="#">Home</a>
 
-            <a href="#">About</a>
+            <a to="#">About</a>
 
-            <a href="#">Products</a>
+            <a to="#">Products</a>
 
-            <a href="#">Contact</a>
+            <a to="#">Contact</a>
           </div>
 
           <div
@@ -47,7 +107,7 @@ const Nav = () => {
             }}
           >
             <a
-              href="https://www.facebook.com/AmazonIN"
+              to="https://www.facebook.com/AmazonIN"
               target="
                     -Akshat"
               style={{
@@ -61,7 +121,7 @@ const Nav = () => {
             </a>
 
             <a
-              href="https://www.instagram.com/amazon/?hl=en" target="-Akshat"
+              to="https://www.instagram.com/amazon/?hl=en" target="-Akshat"
               style={{
                 color: "#c32aa3",
                 height: "100px",
@@ -72,7 +132,7 @@ const Nav = () => {
               <FaInstagramSquare className="Instagram" />
             </a>
 
-            <a href="https://www.youtube.com/@AmazonInOfficial"
+            <a to="https://www.youtube.com/@AmazonInOfficial"
               target="
                     -Akshat"
               style={{
@@ -87,7 +147,7 @@ const Nav = () => {
           </div>
           
          < div className="bottons" style={{display:"flex",justifyContent:"end", fontSize:"21px",width:"83px",marginBlock:"29px"}}>
-            <a href=""  className="btn btn-outline-dark"><i className="fa fa-sign-in me-1"></i>Login</a>
+            <a to=""  className="btn btn-outline-dark"><i className="fa fa-sign-in me-1"></i>Login</a>
           </div>
           
         </div>
@@ -96,8 +156,7 @@ const Nav = () => {
       {/* <section className="hero-section"> 
         <p>Welcome to</p>
         <h1> Akshat Ecommerce website</h1>
-      </section>*/}
-    </>
+      </section>*/
   );
 };
 
