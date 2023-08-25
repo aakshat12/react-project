@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
-import './Signup.css';
+import axios from "axios";
+import "./Signup.css";
 export const Signup = () => {
-  const[name,setName]=useState()
-  const[email,setEmail]=useState()
-  const[password,setPassword]=useState()
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-  const handleSubmit= (e)=> {
-    e.preventDefault()
-    axios.post('',{name,email,password})
-    .then(result => console.log(result))
-    .catch(err => console.log(err))
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3001/register", { name, email, password })
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
+  };
 
   return (
     // <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
@@ -67,44 +67,50 @@ export const Signup = () => {
     //         Login
     //       </Link>
 
-          
-       
-    //   </div>
-    //   <div className='login'>
-    //     <form>
-    //         <label for='chk' aria-hidden='true'>Login</label>
-    //         <input type="email" name="email" placeholder='Email' required=""/>
-    //         <input type="password" name="pswd" placeholder='Password' required=""/>
-    //         <button>Login</button>
-
-    //     </form>
+    //   
     // </div>
     // </div>
-    
-   <div className="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true"/>
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required=""/>
-					<input type="email" name="email" placeholder="Email" required=""/>
-					<input type="password" name="pswd" placeholder="Password" required=""/>
-					<button>Sign up</button>
-				</form>
-        <p style={{color:'white',padding:"15px"}}>Already Have an Account</p>
-			</div>
+    <div className="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required=""/>
-					<input type="password" name="pswd" placeholder="Password" required=""/>
-					<button>Login</button>
-				</form>
-			</div>
-	</div>
-  
+      <div className="signup">
+        <form onSubmit={handleSubmit}>
+          <label aria-hidden="true">
+            Sign up
+          </label>
+          <input type="text" name="txt" placeholder="User name" required="" onChange={(e) => setName(e.target.value)} />
+          <input type="email" name="email" placeholder="Email" required="" onChange={(e) => setEmail(e.target.value)}/>
+          <input
+            type="password"
+            name="pswd"
+            placeholder="Password"
+            required=""
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Signup</button>
+        </form>
+        <p style={{ color: "white", padding: "15px" }}>
+          Already Have an Account
+        </p>
+      </div>
+
+      <div className="login">
+        <form onSubmit={handleSubmit}>
+          <label for='chk' aria-hidden="true">
+            Login
+          </label>
+          <input type="email" name="email" placeholder="Email" required="" />
+          <input
+            type="password"
+            name="pswd"
+            placeholder="Password"
+            required=""
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
   );
 };
 export default Signup;
